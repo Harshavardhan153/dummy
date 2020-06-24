@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Panel</title>
+    <script src="./intermediate.js"></script>
+</head>
+<body>
+    <h1>
+        <script type="text/javascript">
+            document.write(location.search.slice(1).split("&")[0].split("=")[1]);
+            </script>
+    </h1>
+    <form name="forms" method="POST" action="final">
+        <script>
+            var queryString = location.search.slice(1).split("&")[0].split("=")[1];
+            var forms = document.getElementsByName("forms")[0].action = "final?id="+queryString;
+        </script>
+        <input type="submit" name="right" value="Authenticate" />
+        <input type="submit" name ="wrong" value="Decline" />
+    </form>
+</body>
+</html>
