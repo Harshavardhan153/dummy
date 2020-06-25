@@ -4,6 +4,7 @@ const netbanking = require('./payment_method/netbanking');
 const path = require('path');
 const public = '../public';
 const hbs = require('hbs');
+const logger = require('../config/logger');
 
 app.use(express.json());
 app.set('view engine', 'html');
@@ -16,10 +17,10 @@ app.get('/', (req, res) => {
 app.use('/api/transaction/netbanking',netbanking);
 
 app.get('/api/transaction',(req,res) => {
-    console.log('transaction homepage');
+    logger.log('info','transaction homepage');
     res.send("hello");
 });
 
 app.listen(3000, () => {
-    console.log('listening on 3000');
+    logger.log('info','listening on 3000');
 });

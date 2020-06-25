@@ -5,9 +5,10 @@ const client = redis.createClient(6379);
 const path = require('path');
 const authenticate = require('../middleware/nb_authenticate.js');
 const uuid = require('uuid-random');
+const logger = require('../../config/logger.js');
 
 client.on('connect', () => {
-    console.log('connected to Redis-server');
+    logger.log('info','connected to Redis-server');
 });
 
 router.use(express.json());
@@ -15,14 +16,14 @@ router.use(express.urlencoded({extended: true}));
 router.use(authenticate);
 
 router.post('/',(req,res) => {
-    console.log(req.body);
+    logger.log('info',JSON.stringify(req.body));
     
     const BID = uuid();
     const response = req.body;
     response['BID'] = BID;
     response['status'] = '000';
     client.hmset(BID, response, (error, reply) => {
-        console.log(reply);
+        logger.log('info',reply);
     });
 
     res.redirect('netbanking/intermediate?id='+BID);
@@ -32,17 +33,13 @@ router.get('/intermediate', (req,res) => {
     res.render('intermediate.html');
 });
 
-// router.get('/logs', (req,res) => {
-//     client.get()
-// })
-
 router.post('/final', (req,res) => {
-    console.log(req.body);
+    logger.log('info',JSON.stringify(req.body));
 
     let bid = req.query.id;
 
     client.exists(bid, (error,reply) => {
-        console.log(reply);
+        logger.log('info',reply);
     });
     let response = {};
 
@@ -51,19 +48,19 @@ router.post('/final', (req,res) => {
         response['BID'] = req.query.id;
 
         if(error){
-            console.error(error);
+            logger.log('error',error);
             response.status = '001';
             response['errorDesc'] = 'unknown error';
             res.send(response);
             return;
         }
-        console.log(object);
+        logger.log('info',JSON.stringify(object));
 
         if(req.body.right){
-            console.log('success');
+            logger.log('info','success');
             res.send(JSON.stringify(response));
         }else{
-            console.log('failure');
+            logger.log('info','failure');
             response.status = '001';
             response['errorDesc'] = 'user declined';
             res.send(JSON.stringify(response));
