@@ -8,6 +8,7 @@ const hbs = require('hbs');
 app.use(express.json());
 app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
+
 app.get('/', (req, res) => {
     res.render('checkout.html');
 });

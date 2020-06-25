@@ -32,6 +32,10 @@ router.get('/intermediate', (req,res) => {
     res.render('intermediate.html');
 });
 
+// router.get('/logs', (req,res) => {
+//     client.get()
+// })
+
 router.post('/final', (req,res) => {
     console.log(req.body);
 
