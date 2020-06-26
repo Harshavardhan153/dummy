@@ -5,6 +5,9 @@ const path = require('path');
 const public = '../public';
 const hbs = require('hbs');
 const logger = require('../config/logger');
+const config = require('config');
+
+const PORT = config.get('app.port');
 
 app.use(express.json());
 app.set('view engine', 'html');
@@ -21,6 +24,6 @@ app.get('/api/transaction',(req,res) => {
     res.send("hello");
 });
 
-app.listen(3000, () => {
-    logger.log('info','listening on 3000');
+app.listen(PORT, () => {
+    logger.log('info',`listening on: ${PORT}`);
 });

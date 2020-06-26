@@ -1,24 +1,17 @@
 const {format, transports, createLogger} = require('winston');
 require('winston-daily-rotate-file');
 const path = require('path');
-// winston.configure({
-//     transports: [
-//         new winston.transports.Console({
-//             eol: '\n'
-//         })
-//     ]
-// })
+const config = require('config');
+require('dotenv').config({path: './.env'});
+
+const ENV = process.env.NODE_ENV;
 
 var transport = new (transports.DailyRotateFile)({
     filename: './logs/application-%DATE%',
     extension: '.log',
     datePattern: 'YYYY-MM-DD',
     maxSize: '20k'
-})
-
-// transport.on('rotate', (oldFileName, newFileName) => {
-
-// })
+});
 
 const logger = createLogger({
     level: 'info',
@@ -32,12 +25,12 @@ const logger = createLogger({
     ]
 });
 
-// if(process.env.NODE_ENV !== 'production'){
-//     logger.add(new transports.Console({
-//         level: 'info',
-//         eol: '\n',
-//         timestamp: true
-//     }))
-// }
+if(process.env.NODE_ENV !== 'production'){
+    logger.add(new transports.Console({
+        level: 'info',
+        eol: '\n',
+        timestamp: true
+    }))
+}
 
 module.exports = logger;

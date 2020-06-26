@@ -1,14 +1,17 @@
 var express = require('express');
 var router = express.Router();
 const redis = require('redis');
-const client = redis.createClient(6379);
 const path = require('path');
 const authenticate = require('../middleware/nb_authenticate.js');
 const uuid = require('uuid-random');
 const logger = require('../../config/logger.js');
+const config = require('config');
 
+const REDIS_PORT = config.get('redis.port');
+
+const client = redis.createClient(REDIS_PORT);
 client.on('connect', () => {
-    logger.log('info','connected to Redis-server');
+    logger.log('info',`connected to Redis-server on ${REDIS_PORT}`);
 });
 
 router.use(express.json());
@@ -39,7 +42,7 @@ router.post('/final', (req,res) => {
     let bid = req.query.id;
 
     client.exists(bid, (error,reply) => {
-        logger.log('info',reply);
+        // logger.log('info',reply);
     });
     let response = {};
 
@@ -54,15 +57,17 @@ router.post('/final', (req,res) => {
             res.send(response);
             return;
         }
-        logger.log('info',JSON.stringify(object));
+        // logger.log('info',JSON.stringify(object));
 
         if(req.body.right){
-            logger.log('info','success');
+            // logger.log('info','success');
+            logger.log('info', JSON.stringify(response));
             res.send(JSON.stringify(response));
         }else{
-            logger.log('info','failure');
+            // logger.log('info','failure');
             response.status = '001';
             response['errorDesc'] = 'user declined';
+            logger.log('info', JSON.stringify(response));
             res.send(JSON.stringify(response));
         }
         return;
