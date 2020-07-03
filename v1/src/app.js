@@ -4,13 +4,14 @@ const { ROOT_DIR } = require("./utils/path");
 const express = require("express");
 const IndexRouter = require("./api/index-router");
 const logger = require('./logger/logger');
+const config = require('config');
 
 const bodyParser = require("body-parser");
 
 const app = express();
 
 // will go to env file...
-const PORT = process.env.PORT || 3000;
+const PORT = config.get('app.port');
 
 //app
 app.set('view engine', 'ejs');

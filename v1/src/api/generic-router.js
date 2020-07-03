@@ -21,8 +21,6 @@ router.post("/initiate", validator.nbValidationRules(), validator.nbValidation, 
     */
     const transactionInfo = req.body;
     const transactionID = transactionInfo.BID;
-    //transactionInfo['BID'] = transactionID;
-    console.log(transactionID);
     
     //add request
     //TransactionServices.setRequestJSON(transactionID, transactionInfo);
@@ -31,7 +29,6 @@ router.post("/initiate", validator.nbValidationRules(), validator.nbValidation, 
 
     //Add response...
     const mode = Buffer.from(transactionInfo['mode'], 'base64').toString('ascii');
-    console.log(mode);
     
     //const responseFailureJSON = UpdateResponse.populateResponse(transactionInfo, mode, failure);
     //TransactionServices.setFailedResponseJSON(transactionID, responseFailureJSON);
@@ -45,16 +42,14 @@ router.post("/initiate", validator.nbValidationRules(), validator.nbValidation, 
 router.post("/authenticate", (req, res)=> {
     const { transactionID, authenticate, failure }  = req.body;
     //const transactionInfo = TransactionServices.getFailedResponseJSON(transactionID);
-    console.log(transactionID);
     
     client.exists(transactionID, (error, reply) => {
         logger.log('info', reply);
     })
     let transactionInfo = {};
-    client.hgetall(transactionID, (error, value) => {
-        //const request_string = Buffer.from(value, 'base64').toString('ascii');
-        transactionInfo = JSON.parse(value);
-        //const mode = Buffer.from(transactionInfo['mode'], 'base64').toString('ascii');
+    client.get(transactionID, (error, value) => {
+        const request_string = Buffer.from(value, 'base64').toString('ascii');
+        transactionInfo = JSON.parse(request_string);
         res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 
         if(failure === "failure") {
@@ -62,7 +57,7 @@ router.post("/authenticate", (req, res)=> {
             responseFailureJSON['BID'] = transactionID;
             responseFailureJSON['status'] = '001';
             responseFailureJSON['errorDesc'] = 'user declined';
-            
+            logger.log('info', JSON.stringify(responseFailureJSON));
             return res.redirect(303, transactionInfo['RU']+"?"+querystring.stringify(responseFailureJSON));
         }
 
@@ -71,7 +66,7 @@ router.post("/authenticate", (req, res)=> {
         const responseSuccessJSON = transactionInfo;
         responseSuccessJSON['BID'] = transactionID;
         responseSuccessJSON['status'] = '000';
-
+        logger.log('info', JSON.stringify(responseSuccessJSON));
         return res.redirect(303, transactionInfo['RU']+"?"+querystring.stringify(responseSuccessJSON));
     })
     

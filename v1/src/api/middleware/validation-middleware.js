@@ -7,8 +7,6 @@ const logger = require('../../logger/logger');
 const querystring = require('querystring');
 
 const nbValidationRules = () => {
-    
-        
         return [
             check('merchantName').trim().equals("PAYU"),
             check('merchantCode').trim().equals("SlEscuJA98"),
@@ -27,15 +25,15 @@ const nbValidation = (req, res, next) => {
     const errors = validationResult(req);
 
     const transactionID = uuid();
-    console.log(transactionID);
     
     req.body['BID'] = transactionID;
     const transactionInfo = req.body;
     logger.log('info', JSON.stringify(transactionInfo));
 
     TranscationServices.setRequestJSON(transactionID, transactionInfo);
-    
-    client.hmset(transactionID, req.body, (error, reply) => {
+    const base_64_request_string = Buffer.from(JSON.stringify(transactionInfo)).toString('base64');
+
+    client.set(transactionID, base_64_request_string, (error, reply) => {
         logger.log('info', reply);
     });
 

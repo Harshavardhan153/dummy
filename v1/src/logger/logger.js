@@ -4,7 +4,7 @@ require('winston-daily-rotate-file');
 const path = require('path');
 const config = require('config');
 
-//const env = config.get('env.NODE_ENV');
+const env = config.get('env.NODE_ENV');
 
 var transport = new (transports.DailyRotateFile)({
     filename: './logs/applogs-%DATE%',
@@ -24,7 +24,7 @@ const logger = createLogger({
             transport
     ]
 });
-/*
+
 if(env !== 'production'){
     logger.add(new transports.Console({
         level: 'info',
@@ -32,5 +32,4 @@ if(env !== 'production'){
         timestamp: true
     }))
 }
-*/
 module.exports = logger;
