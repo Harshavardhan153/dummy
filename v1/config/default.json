@@ -1,0 +1,11 @@
+{
+    "app": {
+        "port": 3000
+    },
+    "redis":{
+        "port": 6379
+    },
+    "env":{
+        "NODE_ENV": "development"
+    }
+}

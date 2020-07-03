@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/bootstap-v4.4.1-min.css">
+		<style>
+			label {font-weight:bold}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form action="http://localhost:3000/initiate" method="POST" id="myForm" class="well form-horizontal">
+				<fieldset>
+					<div class="col-sm-8 mx-auto">
+						<legend><h2><b>SEND REQUEST</b></h2></legend><br>
+					</div>
+					
+					<div id="propertiesDiv">
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">merchantName </label>
+							<input class="form-control col-sm-4" type="text" name="merchantName" value="PAYU">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">merchantCode </label>
+							<input class="form-control col-sm-4" type="text" name="merchantCode" value="SlEscuJA98">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+						
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">txnAmount </label>
+							<input class="form-control col-sm-4" type="number" name="txnAmount" value="10.00">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+						
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">txnCurrency </label>
+							<input class="form-control col-sm-4" type="text" name="txnCurrency" value="INR">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">txnDate </label>
+							<input class="form-control col-sm-4" type="date" name="txnDate" value="2020-06-15">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">custName </label>
+							<input class="form-control col-sm-4" type="text" name="custName" value="Minnet Khan">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">custMobile </label>
+							<input class="form-control col-sm-4" type="tel" name="custMobile" value="9958240874">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">mode </label>
+							<input class="form-control col-sm-4" type="text" name="mode" value="bmV0X2Jhbmtpbmc=">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">credit_card_number</label>
+							<input class="form-control col-sm-4" type="text" name="credit_card_number" value="">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">expiry_date</label>
+							<input class="form-control col-sm-4" type="text" name="expiry_date" value="">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">cvv</label>
+							<input class="form-control col-sm-4" type="number" name="cvv" value="">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">source </label>
+							<input class="form-control col-sm-4" type="text" name="source">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">txnRefId </label>
+							<input class="form-control col-sm-4" type="number" name="txnRefId" value="87456656834">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">livemode </label>
+							<input class="form-control col-sm-4" type="text" name="livemode" value="false">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">txnDescription </label>
+							<input class="form-control col-sm-4" type="text" name="txnDescription" value="test dummy payment">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+
+						<!-- Text input -->
+						<div class="form-group form-row">
+							<label class="col-sm-2 col-form-label">RU </label>
+							<!-- <input class="form-control col-sm-4" type="text" name="RU" value="https://www.payu.in/response_nb.php"> -->
+							<input class="form-control col-sm-4" type="text" name="RU" value="https://www.payu.in/response_nb.php">
+							<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+						</div>
+					</div>
+					
+					<div class="form-group form-row">
+						<div class="col-sm-4 mx-auto">
+							<button type="submit" class="btn btn-primary btn-lg" >Submit</button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+					
+
+			<!-- ------------------------------------------------------------------------------------------ -->
+		
+		</div>
+
+		<br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br>
+	</body>
+	
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/my_srcipt.js"></script>
+	<script src="/js/bootstrap-v4.4.1-min.js"></script>
+	<!-- <script type="text/javascript" src="/jquery.serializejson.js"></script> -->
+</html>

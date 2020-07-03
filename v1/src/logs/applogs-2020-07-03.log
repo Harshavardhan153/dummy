@@ -1,0 +1,12 @@
+{
+  level: 'info',
+  message: 'server is running at Port: 3000',
+  label: 'app.js',
+  timestamp: '2020-07-03 10:05:41'
+}
+{
+  level: 'info',
+  message: 'connected to Redis-server on 6379',
+  label: 'app.js',
+  timestamp: '2020-07-03 10:05:41'
+}
