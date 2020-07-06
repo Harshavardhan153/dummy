@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstap-v4.4.1-min.css">
+    
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 mx-auto">
+                    <legend><h2><b>Sample Request JSONs</b></h2></legend><br>
+                </div>
+            </div>
+            <% for(let i in sampleRequests) { %>
+                <div class="col-sm-10 mb-3 border broder-secondary">
+                    <pre class="pl-5 ml-5 mt-3"><%=JSON.stringify(sampleRequests[i], undefined, 4)%></pre>
+                    <!-- <ul class="list-group">
+                        <% for(key in sampleRequests[i]) { %>
+                            <li class="list-group-item">
+                                <%=key %>:  <%= sampleRequests[i][key] %>
+                            </li>
+                        <% } %>
+                    </ul> -->
+                    
+                    <div class="row mb-3">
+                        <div class="col-sm-6 mx-auto">
+                            <a class="btn btn-outline-secondary" href="/panel/<%=i%>" role="button">Edit Request</a>
+                            <a class="btn btn-outline-secondary" href="/?id=<%=i%>" role="button">Send Request</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </body>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap-v4.4.1-min.js"></script>
+</html>

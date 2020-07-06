@@ -24,10 +24,10 @@ exports.populateResponse = (transactionInfo, mode, type) => {
     }
 
     if(type === 'success') {
-        responseJSON['status'] = 000;
+        responseJSON['status'] = "000";
     }
     else {
-        responseJSON['status'] = 001;
+        responseJSON['status'] = "001";
         responseJSON['errorDesc'] = "User cancelled the transcation";
     }
 

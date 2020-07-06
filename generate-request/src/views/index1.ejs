@@ -1,0 +1,171 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/bootstap-v4.4.1-min.css">
+		<style>
+			label {font-weight:bold}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form action="http://localhost:3000/initiate" method="POST" id="myForm" class="well form-horizontal">
+				<fieldset>
+					<div class="col-sm-8 mx-auto">
+						<legend><h2><b>Perform Transaction</b></h2></legend><br>
+					</div>
+					
+					<div id="propertiesDiv">
+						<!-- Text input-->
+						<% for(let key in sampleRequest) { %> 
+								<% if( typeof sampleRequest[key] !== 'object' || JSON.stringify(sampleRequest[key]) === 'null') { %> 
+									<div class="form-group form-row">
+										<label class="col-sm-2 col-form-label" > <%= key %> </label>
+										<% if( key === 'jsonDescription') { %>
+											<textarea class="form-control col-sm-4" name="jsonDescription" rows="4" cols="50" placeholder="Enter JSON file Description"><%=sampleRequest[key]%></textarea>
+										<% } else { %>
+											<input class="form-control col-sm-4" type="text" name="<%= key %>"  value="<%= sampleRequest[key] %>" placeholder="Enter something">
+										<% } %>
+
+										<% if(key !== 'jsonName' && key !== 'jsonDescription') { %>
+											<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+										<% } %>
+									</div>
+								<% } else { %> 
+									<hr>
+									<% for(let subKey in sampleRequest[key]) { %>
+										<div class="form-group form-row">
+											<label class="col-sm-2 col-form-label"><%= key %>[<%= subKey %>]</label>
+											<input class="form-control col-sm-4" type="text" name="<%= subKey %>" value="<%= sampleRequest[key][subKey] %>">
+											<input class="btn btn-outline-secondary ml-4 deleteButton" type="button" value="delete">
+										</div>
+									<% } %>
+									<hr>
+								<% } %>
+						<% } %>
+
+					</div>
+					
+					<div class="form-group form-row">
+						<div class="col-sm-4 mx-auto">
+							<button type="submit" class="btn btn-primary btn-lg" >Submit</button>
+						</div>
+					</div>
+				</fieldset>
+            </form>
+            
+            <div class="row mb-3">
+                <div class="col-sm-6 mx-auto">
+                    <a class="btn btn-secondary" href="/panel/0" role="button">Generate Request</a>
+                    <a class="btn btn-secondary" href="/panel/samples" role="button">Sample Requests</a>
+                </div>
+            </div>
+		
+
+			<!-- ------------------------------------------------------------------------------------------ -->
+
+			<hr style="border:1px solid">
+				
+			<div id="addProperties">
+				<div class="col-sm-8">
+					<legend><h4><b class="d-flex justify-content-center">Add Property</b></h4></legend><br>
+				</div>
+				
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="addPropertyType">Type</label>
+					</div>
+					<select class="custom-select col-sm-4 " id="addPropertyType">
+						<option disabled selected value="no_option"> select an option </option>
+						<option value="static">static</option>
+						<option value="dynamic">dynamic</option>
+						<option value="date">date</option>
+					</select>
+				</div>
+			</div>
+			
+			<!-- Add static -->
+			<div id="staticPropertyDivToggle" class="d-none">
+				<div class="col-sm-8 mx-auto">
+					<legend><h4><b>Add Static Property</b></h4></legend><br>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label">Enter Key Name: </label>
+					<input class="form-control col-sm-4" type="text" name="staticPropertyName">
+				</div>
+				
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label">Enter Key Value: </label>
+					<input class="form-control col-sm-4" type="text" name="staticPropertyValue">
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-sm-4 mx-auto">
+						<button type="submit" class="btn btn-primary addStaticPropertyButtonId">Add Property</button>
+						<button type="submit" class="btn btn-danger addStaticPropertyButtonId">Back</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Add dynamic -->
+			<div id="dynamicPropertyDivToggle" class="d-none">
+				<div class="col-sm-8 mx-auto">
+					<legend><h4><b>Add Dynamic Property</b></h4></legend><br>
+				</div>
+				
+				<div id="dynamicPropertyDiv">
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label">Enter Key Name </label>
+						<input class="form-control col-sm-4" type="text" name="dynamicPropertyName">
+					</div>
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="addPropertyType">Key</label>
+					</div>
+					<select class="custom-select col-sm-4" >
+						<option disabled selected value="no_option"> select a key </option>
+						<option value="key1">key1</option>
+						<option value="key2">key2</option>
+						<option value="key3">key3</option>
+						<option value="key4">key4</option>
+						<option value="key5">key5</option>
+					</select>
+
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="addPropertyType">Value</label>
+					</div>
+					<select class="custom-select col-sm-4" >
+						<option disabled selected value="no_option"> select a key </option>
+						<option value="val1">val1</option>
+						<option value="val2">val2</option>
+						<option value="val3">val3</option>
+						<option value="val4">val4</option>
+						<option value="val5">val5</option>
+					</select>
+				</div>
+
+				<div class="row mb-3">
+					<div class="ml-3">
+						<button type="button" class="btn btn-secondary" id="addDynamicSubPropertyButtonId">Add Sub Property</button>
+					</div>
+				</div>
+
+
+				<div class="row mb-3">
+					<div class="ml-3">
+						<button type="button" class="btn btn-primary addDynamicPropertyButtonId">Add Property</button>
+						<button type="submit" class="btn btn-danger addDynamicPropertyButtonId">Back</button>
+					</div>
+				</div>
+			
+		</div>
+
+		<br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br>
+	</body>
+	
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/my_srcipt.js"></script>
+	<script src="/js/bootstrap-v4.4.1-min.js"></script>
+	<script type="text/javascript" src="/jquery.serializejson.js"></script>
+</html>

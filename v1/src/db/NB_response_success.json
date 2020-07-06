@@ -1,0 +1,17 @@
+{
+    "merchantName": "",
+    "merchantCode": "",
+    "txnAmount": "",
+    "txnCurrency": "",
+    "txnDate": "",
+    "custName": "",
+    "custMobile": "",
+    "mode": "",
+    "source": "",
+    "txnRefId": "",
+    "livemode": "",
+    "txnDescription": "",
+    "RU": "",
+    "transactionID": "",
+    "status": ""
+}

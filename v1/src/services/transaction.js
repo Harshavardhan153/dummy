@@ -19,7 +19,11 @@ exports.setRequestJSON = (transcationId, transcationInfo) => {
 }
 
 exports.getFailedResponseJSON = (transcationId) => {
-    return JSONModel.fetchProtocolJSON(transcationId, failedResponse);
+    
+    const savedJSON =  JSONModel.fetchProtocolJSON(transcationId, failedResponse);
+    JSONModel.deleteProtocolJSON(transcationId, failedResponse);
+
+    return savedJSON;
 }
 
 exports.setFailedResponseJSON = (transcationId, transcationInfo) => {

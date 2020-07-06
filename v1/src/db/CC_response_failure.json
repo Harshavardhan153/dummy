@@ -1,0 +1,22 @@
+{
+    "merchantName": "",
+    "merchantCode": "",
+    "txnAmount": "",
+    "txnCurrency": "",
+    "txnDate": "",
+    "custName": "",
+    "custMobile": "",
+    "mode": "",
+    "source": "",
+    "cardNumber":"",
+    "cvv":"",
+    "expiryMonth":"",
+    "expiryYear":"",
+    "txnRefId": "",
+    "livemode": "",
+    "txnDescription": "",
+    "RU": "",
+    "transactionID": "",
+    "status": "",
+    "errorDesc": ""
+}

@@ -1,0 +1,102 @@
+{
+  level: 'info',
+  message: 'server is running at Port: 3000',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:23:25'
+}
+{
+  level: 'info',
+  message: 'connected to Redis-server on 6379',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:23:25'
+}
+{
+  level: 'info',
+  message: '{"jsonName":"credit card","jsonDescription":"credit card info","merchantName":"PAYU","merchantCode":"SlEscuJA98","txnAmount":"10","txnCurrency":"INR","txnDate":"2020-06-15","custName":"Minnet Khan","custMobile":"9958240874","mode":"Q0M=","source":"","txnRefId":"87456656834","livemode":"false","txnDescription":"test dummy payment","RU":"https://www.payu.in/response_nb.php","cardNumber":"1234567891234","expiryMonth":"05","expiryYear":"23","cvv":"123","BID":"1dc77788-7570-4d63-9986-f9251e3c03f5"}',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:24:39'
+}
+{
+  level: 'info',
+  message: 'OK',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:24:39'
+}
+{
+  level: 'info',
+  message: 'server is running at Port: 3000',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:24:43'
+}
+{
+  level: 'info',
+  message: 'connected to Redis-server on 6379',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:24:43'
+}
+{
+  level: 'info',
+  message: 1,
+  label: 'app.js',
+  timestamp: '2020-07-06 02:24:43'
+}
+{
+  level: 'info',
+  message: '{"jsonName":"credit card","jsonDescription":"credit card info","merchantName":"PAYU","merchantCode":"SlEscuJA98","txnAmount":"10","txnCurrency":"INR","txnDate":"2020-06-15","custName":"Minnet Khan","custMobile":"9958240874","mode":"Q0M=","source":"","txnRefId":"87456656834","livemode":"false","txnDescription":"test dummy payment","RU":"https://www.payu.in/response_nb.php","cardNumber":"1234567891234","expiryMonth":"05","expiryYear":"23","cvv":"123","BID":"1dc77788-7570-4d63-9986-f9251e3c03f5","status":"000"}',
+  label: 'app.js',
+  timestamp: '2020-07-06 02:24:43'
+}
+{
+  level: 'info',
+  message: 'server is running at Port: 3000',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:39:25'
+}
+{
+  level: 'info',
+  message: 'server is running at Port: 3000',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:39:53'
+}
+{
+  level: 'info',
+  message: 'connected to Redis-server on 6379',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:39:53'
+}
+{
+  level: 'info',
+  message: '{"jsonName":"credit card","jsonDescription":"credit card info","merchantName":"PAYU","merchantCode":"SlEscuJA98","txnAmount":"10","txnCurrency":"INR","txnDate":"2020-06-15","custName":"Minnet Khan","custMobile":"9958240874","mode":"Q0M=","source":"","txnRefId":"87456656834","livemode":"false","txnDescription":"test dummy payment","RU":"https://www.payu.in/response_nb.php","cardNumber":"1234567891234","expiryMonth":"05","expiryYear":"23","cvv":"123","BID":"b0ee9bae-0cb7-4b91-96a5-5fe664caf544"}',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:40:15'
+}
+{
+  level: 'info',
+  message: 'OK',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:40:16'
+}
+{
+  level: 'info',
+  message: 'server is running at Port: 3000',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:40:19'
+}
+{
+  level: 'info',
+  message: 'connected to Redis-server on 6379',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:40:19'
+}
+{
+  level: 'info',
+  message: 1,
+  label: 'app.js',
+  timestamp: '2020-07-06 11:40:20'
+}
+{
+  level: 'info',
+  message: '{"jsonName":"credit card","jsonDescription":"credit card info","merchantName":"PAYU","merchantCode":"SlEscuJA98","txnAmount":"10","txnCurrency":"INR","txnDate":"2020-06-15","custName":"Minnet Khan","custMobile":"9958240874","mode":"Q0M=","source":"","txnRefId":"87456656834","livemode":"false","txnDescription":"test dummy payment","RU":"https://www.payu.in/response_nb.php","cardNumber":"1234567891234","expiryMonth":"05","expiryYear":"23","cvv":"123","BID":"b0ee9bae-0cb7-4b91-96a5-5fe664caf544","status":"000"}',
+  label: 'app.js',
+  timestamp: '2020-07-06 11:40:20'
+}

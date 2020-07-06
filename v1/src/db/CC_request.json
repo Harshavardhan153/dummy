@@ -1,0 +1,19 @@
+{
+    "merchantName":"PAYU",
+    "merchantCode":"SlEscuJA98",
+    "txnAmount":"",
+    "txnCurrency":"",
+    "txnDate":"",
+    "custName":"",
+    "custMobile":"",
+    "mode":"Q0M=",
+    "cardNumber":"",
+    "cvv":"",
+    "expiryMonth":"",
+    "expiryYear":"",
+    "source":"",
+    "txnRefId":"",
+    "livemode":"",
+    "txnDescription":"",
+    "RU":""
+}
