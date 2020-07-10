@@ -12,7 +12,6 @@
     "cvv":"",
     "expiryMonth":"",
     "expiryYear":"",
-    "isEMI": "",
     "txnRefId": "",
     "livemode": "",
     "txnDescription": "",

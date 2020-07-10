@@ -12,11 +12,11 @@
     "cvv":"",
     "expiryMonth":"",
     "expiryYear":"",
-    "isEMI": "",
     "txnRefId": "",
     "livemode": "",
     "txnDescription": "",
     "RU": "",
     "transactionID": "",
-    "status": ""
+    "status": "",
+    "errorDesc": ""
 }

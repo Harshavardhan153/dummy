@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PayU</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/typography.css">
+</head>
+
+<body>
+    <div class="main page-bg-white">
+        <header>
+            <div class="header-main white-hdr">
+                <div class="hd-logo"><img src="/images/logo.svg" alt="PayU Logo"></div>
+            </div>
+        </header>
+
+        <section>
+            <div class="common-container">
+                <div class="container">
+                    <div class="bank-section">
+                        <h3><i class="bank-icon"><img src="/images/bank-icon.png"></i> PayU Bank <span
+                                class="yellow-bx">Demo Bank</span></h3>
+                        <p>This is just a demo bank page for Card Transactions.</p>
+                        <p class="subtext">You can choose whether to make this payment succesful or not</p>
+                        <div class="button-wrap">
+                            <form action="/authenticateCard" method="post">
+                                <input type="hidden" value="<%= transactionID %>" name="transactionID"/>
+                                <div class="form-group form-row">
+                                    <label class="col-sm-2 col-form-label" > Please Enter Your OTP :    </label>
+                                    <input class="form-control col-sm-4" type="password" name="OTP" placeholder="Enter a 6 digit Number" autocomplete="off">
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-sm-4 mx-auto">
+                                        <input type="submit" value="Submit" class="cmn-btn btn-witdh green-color" name="Submit">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
