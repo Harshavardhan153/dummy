@@ -32,7 +32,8 @@
                                 <input type="hidden" value="<%= transactionID %>" name="transactionID"/>
                                 <div class="form-group form-row">
                                     <label class="col-sm-2 col-form-label" > Please Enter Your OTP :    </label>
-                                    <input class="form-control col-sm-4" type="password" name="OTP" placeholder="Enter a 6 digit Number" autocomplete="off">
+                                    <input onpaste="return false;" onDrop="return false" class="form-control col-sm-4" type="password" name="OTP" placeholder="Enter a 6 digit Number" autocomplete="off" onkeyup="checkOTP(this.value)" onkeypress="validate(event)">
+                                    <label class="col-sm-2 col-form-label" id="result"></label>
                                 </div>
                                 <div class="form-group form-row">
                                     <div class="col-sm-4 mx-auto">
@@ -47,5 +48,41 @@
     </div>
 
 </body>
+<script>
+    function checkOTP(str) {
+        var result = (!str.match(/[a-z]/g) && !str.match(/[A-Z]/g) && str.match(/[0-9]/g) && !str.match(/[^a-zA-Z\d]/g) && str.length == 6)
+        var display = document.getElementById('result');
+        var othercharacters = (str.match(/[a-z]/g) || str.match(/[A-Z]/g) || (str.match(/[$@$!%*#?&]/g)));
+
+        if(othercharacters){
+            display.innerHTML = 'characters other than numbers are not allowed';
+        }
+        else{
+            if(result){
+                display.innerHTML = 'OK';
+            }
+            else {
+                if(str.length > 6)display.innerHTML = '6 are enough';
+                else{
+                    display.innerHTML = (6-(str.length))+' more';
+                }
+            }
+        }
+    }
+
+    function validate(event) {
+        var theEvent = event || window.event;
+
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+
+</script>
 
 </html>
